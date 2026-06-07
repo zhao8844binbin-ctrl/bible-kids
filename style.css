@@ -1,0 +1,155 @@
+/* 圣经儿童绘本 - 网站样式 */
+:root {
+  --bg: #fdfaf5; --text: #3a3a3a; --muted: #999;
+  --accent: #8b7355; --dialog-bg: #f5f5f0; --white: #fff;
+  --gold: #c9a96e; --gold-light: #f0e6d3;
+  --ot-color: #8b6914; --nt-color: #6b3a7d;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Noto Serif SC', serif;
+  background: var(--bg); color: var(--text); line-height: 1.8;
+  max-width: 800px; margin: 0 auto; padding: 20px;
+}
+
+/* ===== Header ===== */
+.site-header { text-align: center; padding: 2.5em 0 1.5em; }
+.site-header h1 { font-size: 2em; color: var(--accent); margin-bottom: 0.3em; }
+.site-header p { color: var(--muted); font-size: 0.95em; }
+
+/* ===== Testament Section ===== */
+.testament-section { margin: 1em 0 2.5em; }
+.testament-title {
+  text-align: center; font-size: 1.4em; font-weight: 700;
+  padding: 0.8em 0 0.6em; letter-spacing: 0.05em;
+}
+.testament-section:first-of-type .testament-title { color: var(--ot-color); }
+.testament-section:last-of-type .testament-title { color: var(--nt-color); }
+
+/* ===== Book Group ===== */
+.book-group { margin-bottom: 1.8em; }
+.group-label {
+  font-size: 0.85em; color: var(--muted); font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  padding: 0.4em 0; margin-bottom: 0.5em;
+  border-bottom: 1px solid #e8e4dc;
+}
+
+/* ===== Book Grid ===== */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+/* ===== Book Card ===== */
+.book-card {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 12px 8px; border-radius: 10px;
+  text-align: center; transition: all 0.2s ease;
+  border: 1.5px solid #e8e4dc;
+  background: var(--white);
+  cursor: default;
+}
+.book-card .book-name {
+  font-size: 0.85em; font-weight: 600; color: var(--text);
+  line-height: 1.4;
+}
+.book-card .book-summary {
+  font-size: 0.7em; color: #8b7355; margin-top: 2px;
+  line-height: 1.5; opacity: 0.85;
+}
+
+/* Available book */
+.book-card.available {
+  border-color: var(--gold);
+  background: linear-gradient(135deg, #fffef9, #faf3e3);
+  box-shadow: 0 2px 8px rgba(201,169,110,0.15);
+}
+.book-card.available:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(201,169,110,0.25);
+  border-color: var(--accent);
+}
+.book-card.available .book-name { color: #5a4a2e; }
+
+/* Coming soon book */
+.book-card.coming {
+  background: #fafaf8;
+  border-color: #eee;
+  opacity: 0.6;
+}
+.book-card.coming .book-name { color: #bbb; }
+
+/* Book card link */
+a.book-card { text-decoration: none; cursor: pointer; }
+
+/* ===== Chapter List ===== */
+.chapter-list { list-style: none; padding: 0 1em; }
+.chapter-list li {
+  border-bottom: 1px solid #e8e4dc; padding: 1.2em 0.8em;
+}
+.chapter-list a {
+  text-decoration: none; color: var(--text); display: block;
+}
+.chapter-list a:hover { color: var(--accent); }
+.chapter-list .ch-num {
+  font-size: 0.8em; color: var(--muted); margin-bottom: 0.3em;
+}
+.chapter-list .ch-title {
+  font-size: 1.15em; font-weight: 600; margin-bottom: 0.4em; line-height: 1.4;
+}
+.chapter-list .ch-desc {
+  font-size: 0.9em; color: var(--muted); line-height: 1.7;
+}
+
+/* ===== Chapter Page ===== */
+.chapter-header { text-align: center; padding: 2em 0 1.5em; }
+.chapter-header h1 { font-size: 1.6em; color: var(--accent); }
+.chapter-nav {
+  display: flex; justify-content: space-between; padding: 1em 0;
+  font-size: 0.9em;
+}
+.chapter-nav a { color: var(--accent); text-decoration: none; }
+.chapter-nav a:hover { text-decoration: underline; }
+
+/* Content */
+article { padding: 0 0 3em; }
+article p { margin-bottom: 0.8em; font-size: 1.05em; text-indent: 2em; }
+article .section-title {
+  text-align: center; font-size: 1.15em; font-weight: bold;
+  margin: 1.5em 0 0.5em; text-indent: 0;
+}
+article .dialog {
+  text-align: center; color: var(--muted); padding: 1em;
+  margin: 1.2em 0; background: var(--dialog-bg); border-radius: 8px;
+  font-size: 1em; text-indent: 0; line-height: 2.0;
+}
+article figure { margin: 1.5em 0; text-align: center; }
+article figure img {
+  max-width: 100%; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+/* Summary box */
+.summary-box {
+  font-size: 0.9em; line-height: 2.2; padding: 1.5em;
+  background: var(--dialog-bg); border-radius: 8px;
+  text-align: center; margin: 2em 0; text-indent: 0;
+}
+.summary-box p { text-indent: 0; margin-bottom: 0.2em; }
+
+/* Footer */
+.site-footer { text-align: center; padding: 2em 0; color: var(--muted); font-size: 0.85em; border-top: 1px solid #e8e4dc; }
+.site-footer a { color: var(--accent); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.back-home { display: inline-block; margin-bottom: 1em; color: var(--accent); text-decoration: none; font-size: 0.9em; }
+.back-home:hover { text-decoration: underline; }
+
+@media (max-width: 480px) {
+  body { padding: 15px; }
+  .site-header h1 { font-size: 1.5em; }
+  .book-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 6px; }
+  .book-card { padding: 10px 6px; }
+  .book-card .book-abbr { font-size: 1.1em; }
+  .book-card .book-name { font-size: 0.7em; }
+}
